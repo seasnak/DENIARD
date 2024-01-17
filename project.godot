@@ -12,7 +12,11 @@ config_version=5
 
 config/name="DENIARD"
 config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
+<<<<<<< HEAD
 config/icon="res://Sprites/icon.svg"
+=======
+config/icon="res://icon.svg"
+>>>>>>> 36d2e4e6e20f84033ec3b192c57099586e66094a
 
 [dotnet]
 
