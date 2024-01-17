@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bxyfgsmiy4ul" path="res://Sprites/test.png" id="1_50cfi"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="2_g6jhb"]
 [ext_resource type="Texture2D" uid="uid://c38q8cw2u72kl" path="res://Sprites/icon.svg" id="2_iu2rf"]
-[ext_resource type="Script" path="res://Scripts/CameraController.cs" id="4_homwb"]
+[ext_resource type="Script" path="res://Scripts/Camera.cs" id="4_homwb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cnvyj"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
