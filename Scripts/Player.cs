@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-
+namespace Deniard;
 public partial class Player : CharacterBody2D
 {
 
@@ -61,13 +61,23 @@ public partial class Player : CharacterBody2D
 			sprite.Play("idle");
 		}
 
+		if(Input.IsActionPressed("attack")) {
+			is_attacking = true;
+		}
+
 		return Velocity;
 	}
 
 	private void HandleAttack() 
 	{
 		//Handles the player's attacks
+		if(is_attacking) {
+			// Do Something
+		}
+
 		
+
+
 
 	}
 

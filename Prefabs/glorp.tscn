@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://yohljcmgj54w"]
+
+[ext_resource type="Texture2D" uid="uid://qe45ixtc3c3l" path="res://Sprites/Enemy/glorp.png" id="1_toej8"]
+[ext_resource type="Texture2D" uid="uid://bmlquhqwfsfaf" path="res://Sprites/Enemy/glorp_walking-Sheet.png" id="2_l7a1q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aexda"]
+size = Vector2(8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i5er"]
+atlas = ExtResource("2_l7a1q")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xewlu"]
+atlas = ExtResource("2_l7a1q")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmisi"]
+atlas = ExtResource("2_l7a1q")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjkag"]
+atlas = ExtResource("2_l7a1q")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jftoh"]
+atlas = ExtResource("2_l7a1q")
+region = Rect2(48, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shxy5"]
+atlas = ExtResource("2_l7a1q")
+region = Rect2(60, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmvok"]
+atlas = ExtResource("2_l7a1q")
+region = Rect2(72, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwr0t"]
+atlas = ExtResource("2_l7a1q")
+region = Rect2(84, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_edtvq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_toej8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i5er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xewlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmisi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjkag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jftoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shxy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmvok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwr0t")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 10.0
+}]
+
+[node name="Glorp" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_aexda")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_edtvq")
+animation = &"walking"
