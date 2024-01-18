@@ -75,10 +75,6 @@ public partial class Player : CharacterBody2D
 			// Do Something
 		}
 
-		
-
-
-
 	}
 
 
@@ -92,5 +88,11 @@ public partial class Player : CharacterBody2D
 	{
 		curr_health += healing;
 	}
+
+	//Getters and Setters
+	public int GetCurrHealth() { return curr_health; }
+	public void SetCurrHealth(int val) { curr_health = val; }
+	public int GetCurrMana() { return curr_mana; }
+	public void SetCurrMana(int val) { curr_mana = val; }
 
 }
