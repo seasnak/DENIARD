@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bmlquhqwfsfaf" path="res://Sprites/Enemy/glorp_walking-Sheet.png" id="2_l7a1q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aexda"]
-size = Vector2(8, 9)
+size = Vector2(8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1i5er"]
 atlas = ExtResource("2_l7a1q")
@@ -81,10 +81,10 @@ animations = [{
 [node name="Glorp" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1.5)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_aexda")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_edtvq")
-animation = &"walking"
+animation = &"idle"

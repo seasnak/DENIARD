@@ -1,7 +1,7 @@
 using Deniard;
 using Godot;
 using System;
-using System.Numerics;
+using System.Collections.Generic;
 
 namespace Deniard;
 public partial class Glorp : Enemy
@@ -28,7 +28,13 @@ public partial class Glorp : Enemy
 		
 		Godot.Vector2 dist_to_player = (player.Position - this.Position);
 		
-		if(dist_to_player.Length() > 30) {
+		var space_state = GetWorld2D().DirectSpaceState;
+		var query = PhysicsRayQueryParameters2D.Create(this.Position, player.Position);
+		Godot.Collections.Dictionary result = space_state.IntersectRay(query);
+		// GD.Print(result["collider_id"], player.GetInstanceId()); //DEBUG
+		
+		// check for LOS and distance
+		if(dist_to_player.Length() < 100 && (ulong)(result["collider_id"]) == player.GetInstanceId()) {
 			Velocity = (player.Position - this.Position).Normalized() * movespeed;
 			sprite.FlipH = Velocity.X > 0;
 		}

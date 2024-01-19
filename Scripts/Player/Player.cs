@@ -12,6 +12,9 @@ public partial class Player : CharacterBody2D
 	private int curr_mana = 10;
 	private int max_mana = 10;
 
+	private int curr_money = 0;
+	private int max_money = 100;
+
 	private int movespeed = 50;
 	
 	private int dashspeed = 50;
@@ -46,7 +49,7 @@ public partial class Player : CharacterBody2D
 	{
 		//Handles basic player movement and animations
 
-		Vector2 input = Input.GetVector("left", "right", "up", "down");
+		Godot.Vector2 input = Input.GetVector("left", "right", "up", "down");
 		Velocity = input.Normalized() * movespeed;
 
 		if(input.X != 0) {
@@ -54,7 +57,7 @@ public partial class Player : CharacterBody2D
 		}
 
 		//Animation Handler
-		if(input.X != 0) {
+		if(input.Length() != 0) {
 			sprite.Play("walking");
 		}
 		else {
@@ -87,6 +90,11 @@ public partial class Player : CharacterBody2D
 	public void Heal(int healing)
 	{
 		curr_health += healing;
+	}
+
+	public void AddMoney(int amount) 
+	{
+		curr_money += amount;
 	}
 
 	//Getters and Setters

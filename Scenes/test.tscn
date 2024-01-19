@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbd7qdtv00cc2"]
+[gd_scene load_steps=19 format=3 uid="uid://dbd7qdtv00cc2"]
 
 [ext_resource type="Texture2D" uid="uid://bxyfgsmiy4ul" path="res://Sprites/test.png" id="1_50cfi"]
 [ext_resource type="PackedScene" uid="uid://d2levtu3ndv6" path="res://Prefabs/player.tscn" id="2_moiji"]
 [ext_resource type="Script" path="res://Scripts/CharacterCamera.cs" id="4_1mogx"]
 [ext_resource type="PackedScene" uid="uid://yohljcmgj54w" path="res://Prefabs/glorp.tscn" id="4_jbiq8"]
-[ext_resource type="Script" path="res://Scripts/Glorp.cs" id="5_q3sp3"]
+[ext_resource type="Script" path="res://Scripts/Enemy/Glorp.cs" id="5_xm5dr"]
+[ext_resource type="Texture2D" uid="uid://bx2pq15p7nqsh" path="res://Sprites/Objects/coin-Sheet.png" id="6_0r3pw"]
+[ext_resource type="Script" path="res://Scripts/Objects/Coin.cs" id="6_2v7ml"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cnvyj"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -33,6 +35,59 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_126jh")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cc3a"]
+size = Vector2(15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmymv"]
+atlas = ExtResource("6_0r3pw")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c50m0"]
+atlas = ExtResource("6_0r3pw")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4ro3"]
+atlas = ExtResource("6_0r3pw")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afteh"]
+atlas = ExtResource("6_0r3pw")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vlns"]
+atlas = ExtResource("6_0r3pw")
+region = Rect2(48, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0guv"]
+atlas = ExtResource("6_0r3pw")
+region = Rect2(60, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4o2cq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmymv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c50m0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4ro3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afteh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vlns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0guv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -48,4 +103,16 @@ script = ExtResource("4_1mogx")
 
 [node name="Glorp" parent="." instance=ExtResource("4_jbiq8")]
 position = Vector2(66, -30)
-script = ExtResource("5_q3sp3")
+script = ExtResource("5_xm5dr")
+
+[node name="Coin" type="Area2D" parent="."]
+position = Vector2(-54, 41)
+script = ExtResource("6_2v7ml")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_2cc3a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin"]
+sprite_frames = SubResource("SpriteFrames_4o2cq")
