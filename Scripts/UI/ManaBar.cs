@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 namespace Deniard;
-public partial class HealthBar : TextureProgressBar
+public partial class ManaBar : TextureProgressBar
 {
 	
 	[Export] private Player player;
@@ -14,8 +14,8 @@ public partial class HealthBar : TextureProgressBar
 		player = GetNode<Player>("/root/World/Player");
 		
 		// this.ShowPercentage = false;
-		this.Position = new Vector2(10, 10);
-		this.Size = new Vector2(5 * player.GetMaxHealth(), 20); // scale bar with player stats 
+		this.Position = new Vector2(10, 40);
+		this.Size = new Vector2(5 * player.GetMaxMana(), 20);
 		this.Scale = new Vector2(3, 3);
 
 	}
@@ -23,7 +23,8 @@ public partial class HealthBar : TextureProgressBar
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		// update bar
-		this.Value = player.GetCurrHealth() * 100 / player.GetMaxHealth();
+
+		this.Value = player.GetCurrMana() * 100 / player.GetMaxMana();
+
 	}
 }

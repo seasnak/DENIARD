@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dbd7qdtv00cc2"]
+[gd_scene load_steps=24 format=3 uid="uid://dbd7qdtv00cc2"]
 
 [ext_resource type="Texture2D" uid="uid://bxyfgsmiy4ul" path="res://Sprites/test.png" id="1_50cfi"]
 [ext_resource type="PackedScene" uid="uid://d2levtu3ndv6" path="res://Prefabs/player.tscn" id="2_moiji"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Scripts/UI/HealthBar.cs" id="8_gid33"]
 [ext_resource type="Texture2D" uid="uid://e8ykpiyroghv" path="res://Sprites/UI/healthbar_progress.png" id="8_rxudn"]
 [ext_resource type="Texture2D" uid="uid://xokmw5jcs28t" path="res://Sprites/UI/healthbar_under.png" id="8_wruo1"]
+[ext_resource type="Texture2D" uid="uid://bi073q7d1rh20" path="res://Sprites/UI/manabar_progress.png" id="9_qsq36"]
+[ext_resource type="Script" path="res://Scripts/UI/ManaBar.cs" id="10_40lwj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cnvyj"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -121,6 +123,13 @@ shape = SubResource("RectangleShape2D_2cc3a")
 sprite_frames = SubResource("SpriteFrames_4o2cq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ManaBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_right = 72.0
+offset_bottom = 50.0
+texture_under = ExtResource("8_wruo1")
+texture_progress = ExtResource("9_qsq36")
+script = ExtResource("10_40lwj")
 
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
 offset_right = 25.0

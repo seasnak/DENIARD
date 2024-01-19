@@ -9,8 +9,8 @@ public partial class Player : CharacterBody2D
 	private float curr_health = 100;
 	private int max_health = 100;
 	
-	private int curr_mana = 100;
-	private int max_mana = 100;
+	private int curr_mana = 50;
+	private int max_mana = 50;
 
 	private int curr_money = 0;
 	private int max_money = 100;
@@ -39,9 +39,14 @@ public partial class Player : CharacterBody2D
 	{
 		
 		curr_health -= (float)delta;
+		if(curr_health <= 0) { 
+			//Handle player death
+			GD.Print("Player Died"); 
+			curr_health = max_health; 
+		}
+
 		HandleInput();
 		HandleAttack();
-
 		MoveAndSlide();
 	}
 
