@@ -6,11 +6,11 @@ public partial class Player : CharacterBody2D
 {
 
 	//Stats
-	private int curr_health = 10;
-	private int max_health = 10;
+	private float curr_health = 100;
+	private int max_health = 100;
 	
-	private int curr_mana = 10;
-	private int max_mana = 10;
+	private int curr_mana = 100;
+	private int max_mana = 100;
 
 	private int curr_money = 0;
 	private int max_money = 100;
@@ -37,7 +37,8 @@ public partial class Player : CharacterBody2D
 
 	public override void _Process(double delta) 
 	{
-
+		
+		curr_health -= (float)delta;
 		HandleInput();
 		HandleAttack();
 
@@ -98,8 +99,15 @@ public partial class Player : CharacterBody2D
 	}
 
 	//Getters and Setters
-	public int GetCurrHealth() { return curr_health; }
+	public float GetCurrHealth() { return curr_health; }
 	public void SetCurrHealth(int val) { curr_health = val; }
+
+	public int GetMaxHealth() { return max_health; }
+	public void SetMaxHealth(int val) { max_health = val; }
+
+	public int GetMaxMana() { return max_mana; }
+	public void SetMaxMana(int val) { max_mana = val; }
+
 	public int GetCurrMana() { return curr_mana; }
 	public void SetCurrMana(int val) { curr_mana = val; }
 
