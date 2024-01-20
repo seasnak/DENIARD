@@ -18,6 +18,9 @@ public partial class Coin : Area2D
 		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		collider = GetNode<CollisionShape2D>("CollisionShape2D");
 
+		this.CollisionLayer = 3; // Object Collision Layer is 3
+		this.CollisionMask = 1; // Check only for collision with Player
+
 		sprite.Play("default");
 		sprite.SpeedScale = 2f;
 

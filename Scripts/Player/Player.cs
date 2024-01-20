@@ -6,7 +6,7 @@ public partial class Player : CharacterBody2D
 {
 
 	//Stats
-	private float curr_health = 100;
+	private int curr_health = 100;
 	private int max_health = 100;
 	
 	private int curr_mana = 50;
@@ -26,6 +26,9 @@ public partial class Player : CharacterBody2D
 
 	//Child Nodes (Attributes)
 	private AnimatedSprite2D sprite;
+
+	//Time Value
+	private double lifedrain_check = 0;
 	
 	//Main Functions
 	public override void _Ready() 
@@ -38,12 +41,7 @@ public partial class Player : CharacterBody2D
 	public override void _Process(double delta) 
 	{
 		
-		curr_health -= (float)delta;
-		if(curr_health <= 0) { 
-			//Handle player death
-			GD.Print("Player Died"); 
-			curr_health = max_health; 
-		}
+		lifedrain_check = HandleHealth(delta, lifedrain_check);
 
 		HandleInput();
 		HandleAttack();
@@ -86,6 +84,24 @@ public partial class Player : CharacterBody2D
 
 	}
 
+	private double HandleHealth(double delta, double total) 
+	{
+		//Handle player death
+		if(curr_health <= 0) { 
+			GD.Print("Player Died"); 
+			curr_health = max_health; 
+		}
+
+		//Handle life drain effect
+		total += delta;
+		if (total >= 1) {
+			curr_health -= (int)total;
+			total = 0;
+		}
+		
+		return total;
+		
+	}
 
 	//Interactions
 	public void Damage(int damage)
@@ -104,7 +120,7 @@ public partial class Player : CharacterBody2D
 	}
 
 	//Getters and Setters
-	public float GetCurrHealth() { return curr_health; }
+	public int GetCurrHealth() { return curr_health; }
 	public void SetCurrHealth(int val) { curr_health = val; }
 
 	public int GetMaxHealth() { return max_health; }

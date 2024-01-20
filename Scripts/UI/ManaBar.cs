@@ -24,7 +24,7 @@ public partial class ManaBar : TextureProgressBar
 	public override void _Process(double delta)
 	{
 
-		this.Value = player.GetCurrMana() * 100 / player.GetMaxMana();
+		this.Value = player.GetCurrMana() * this.MaxValue / player.GetMaxMana();
 
 	}
 }
