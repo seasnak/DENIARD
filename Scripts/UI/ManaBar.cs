@@ -17,14 +17,13 @@ public partial class ManaBar : TextureProgressBar
 		this.Position = new Vector2(10, 40);
 		this.Size = new Vector2(5 * player.GetMaxMana(), 20);
 		this.Scale = new Vector2(3, 3);
-
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 
-		this.Value = player.GetCurrMana() * 100 / player.GetMaxMana();
-
+		this.Value = player.GetCurrMana() * 100 / player.GetMaxMana();	
 	}
 }
