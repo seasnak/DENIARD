@@ -24,6 +24,6 @@ public partial class HealthBar : TextureProgressBar
 	public override void _Process(double delta)
 	{
 		// update bar
-		this.Value = player.GetCurrHealth() * 100 / player.GetMaxHealth();
+		this.Value = player.GetCurrHealth() * this.MaxValue / player.GetMaxHealth();
 	}
 }

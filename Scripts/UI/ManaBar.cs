@@ -23,7 +23,6 @@ public partial class ManaBar : TextureProgressBar
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-
-		this.Value = player.GetCurrMana() * 100 / player.GetMaxMana();	
+		this.Value = player.GetCurrMana() * this.MaxValue / player.GetMaxMana();
 	}
 }
