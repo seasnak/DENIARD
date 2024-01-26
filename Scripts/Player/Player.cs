@@ -36,6 +36,10 @@ public partial class Player : CharacterBody2D
 
 		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		
+		
+		this.SetCollisionMaskValue(2, true);
+		this.SetCollisionMaskValue(3, true);
+		
 	}
 
 	public override void _Process(double delta) 
@@ -132,4 +136,5 @@ public partial class Player : CharacterBody2D
 	public int GetCurrMana() { return curr_mana; }
 	public void SetCurrMana(int val) { curr_mana = val; }
 
+	public int GetMoney() { return this.curr_money; }
 }

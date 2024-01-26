@@ -1,19 +1,38 @@
 using Godot;
 using System;
+using System.CodeDom.Compiler;
 using System.ComponentModel.DataAnnotations;
 
 namespace Deniard;
-public partial class CoinCounter : Label
+public partial class CoinCounter : RichTextLabel
 {
+
+	TextureRect coin_texture;
+	Player player;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		this.Position = new  Vector2(0, 0);
+		coin_texture = GetNode<TextureRect>("TextureRect");	
+		
+		player = GetNode<Player>("/root/World/Player");
+
+		Vector2 screensize = this.GetViewportRect().Size;
+		GD.Print(screensize);
+
+		this.ClipContents = false;
+		this.AutowrapMode = TextServer.AutowrapMode.Off;
+		this.FitContent = true;
+		this.Scale = new Vector2(2, 2);
+
+		this.Position = new Vector2(screensize.X - 50, 10);
+		coin_texture.Position = new Vector2(-20, 2);
+		coin_texture.Scale = new Vector2(0.5f, 0.5f);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
+		this.Text = $"{player.GetMoney()}";
 	}
 }

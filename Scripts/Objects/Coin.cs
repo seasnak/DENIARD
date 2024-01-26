@@ -5,7 +5,7 @@ namespace Deniard;
 public partial class Coin : Area2D
 {
 	//Attributes
-	int value = 5;
+	int value = 1;
 
 	// Children Nodes
 	private AnimatedSprite2D sprite;
@@ -18,8 +18,8 @@ public partial class Coin : Area2D
 		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		collider = GetNode<CollisionShape2D>("CollisionShape2D");
 
-		this.CollisionLayer = 3; // Object Collision Layer is 3
-		this.CollisionMask = 1; // Check only for collision with Player
+		this.SetCollisionLayerValue(1, false);
+		this.SetCollisionLayerValue(3, true); // Object Collision Layer is 3
 
 		sprite.Play("default");
 		sprite.SpeedScale = 2f;
