@@ -19,14 +19,14 @@ public partial class CoinCounter : RichTextLabel
 
 		Vector2 screensize = this.GetViewportRect().Size;
 		GD.Print(screensize);
-
+		
 		this.ClipContents = false;
 		this.AutowrapMode = TextServer.AutowrapMode.Off;
 		this.FitContent = true;
 		this.Scale = new Vector2(2, 2);
 
-		this.Position = new Vector2(screensize.X - 50, 10);
-		coin_texture.Position = new Vector2(-20, 2);
+		this.Position = new Vector2(screensize.X - 50, 20);
+		coin_texture.Position = new Vector2(-20, 0);
 		coin_texture.Scale = new Vector2(0.5f, 0.5f);
 	}
 

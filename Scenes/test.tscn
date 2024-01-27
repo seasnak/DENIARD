@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dbd7qdtv00cc2"]
+[gd_scene load_steps=27 format=3 uid="uid://dbd7qdtv00cc2"]
 
 [ext_resource type="Texture2D" uid="uid://bxyfgsmiy4ul" path="res://Sprites/test.png" id="1_50cfi"]
 [ext_resource type="PackedScene" uid="uid://d2levtu3ndv6" path="res://Prefabs/player.tscn" id="2_moiji"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://xokmw5jcs28t" path="res://Sprites/UI/healthbar_under.png" id="8_wruo1"]
 [ext_resource type="Texture2D" uid="uid://bi073q7d1rh20" path="res://Sprites/UI/manabar_progress.png" id="9_qsq36"]
 [ext_resource type="Script" path="res://Scripts/UI/ManaBar.cs" id="10_40lwj"]
+[ext_resource type="FontFile" uid="uid://c7bot0vp53gdl" path="res://Fonts/ARCADECLASSIC.TTF" id="13_1t8l2"]
 [ext_resource type="Script" path="res://Scripts/UI/CoinCounter.cs" id="13_47o2o"]
 [ext_resource type="Texture2D" uid="uid://c61j4d6ea3ufv" path="res://Sprites/Objects/coin.png" id="13_n085u"]
 
@@ -113,7 +114,7 @@ position = Vector2(66, -30)
 script = ExtResource("5_xm5dr")
 
 [node name="Coin" type="Area2D" parent="."]
-position = Vector2(-54, 41)
+position = Vector2(-29, 25)
 script = ExtResource("6_2v7ml")
 metadata/_edit_group_ = true
 
@@ -125,6 +126,7 @@ shape = SubResource("RectangleShape2D_2cc3a")
 sprite_frames = SubResource("SpriteFrames_4o2cq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ManaBar" type="TextureProgressBar" parent="CanvasLayer"]
 offset_right = 72.0
@@ -145,6 +147,7 @@ clip_contents = false
 offset_right = 1.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_fonts/normal_font = ExtResource("13_1t8l2")
 text = "Coin"
 fit_content = true
 scroll_active = false
@@ -152,6 +155,7 @@ autowrap_mode = 0
 script = ExtResource("13_47o2o")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/CoinCounter"]
+layout_mode = 0
 offset_left = -40.0
 offset_bottom = 40.0
 texture = ExtResource("13_n085u")
