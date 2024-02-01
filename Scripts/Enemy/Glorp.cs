@@ -14,6 +14,9 @@ public partial class Glorp : Enemy
     public override void _Ready()
     {
         base._Ready();
+
+		//update local variables
+		movespeed = 30;
 		
 		player = GetNode<Player>("/root/World/Player");
     }

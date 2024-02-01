@@ -25,7 +25,7 @@ public partial class CharacterCamera : Camera2D
 	{
 		// smooth camera
 		Vector2 dist_to_target = target.Position - this.Position;
-		if(dist_to_target.Length() > 1) {
+		if(dist_to_target.Length() > 5) {
 			this.Position += dist_to_target.Normalized() * dist_to_target.Length()*0.1f;
 		}
 		

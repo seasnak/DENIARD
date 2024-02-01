@@ -15,7 +15,7 @@ public partial class Player : CharacterBody2D
 	private int curr_money = 0;
 	private int max_money = 100;
 
-	private int movespeed = 50;
+	private int movespeed = 80;
 	
 	private int dashspeed = 50;
 	private float dash_dur = 0.2f;
@@ -46,7 +46,7 @@ public partial class Player : CharacterBody2D
 	{
 		
 		lifedrain_check = HandleHealth(delta, lifedrain_check);
-
+		
 		HandleInput();
 		HandleAttack();
 		MoveAndSlide();
@@ -76,7 +76,9 @@ public partial class Player : CharacterBody2D
 			is_attacking = true;
 		}
 
+		// GD.Print($"{Velocity}");
 		return Velocity;
+		
 	}
 
 	private void HandleAttack() 
