@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://yohljcmgj54w"]
+[gd_scene load_steps=14 format=3 uid="uid://yohljcmgj54w"]
 
+[ext_resource type="Script" path="res://Scripts/Enemy/Glorp.cs" id="1_ijwm0"]
 [ext_resource type="Texture2D" uid="uid://qe45ixtc3c3l" path="res://Sprites/Enemy/glorp.png" id="1_toej8"]
 [ext_resource type="Texture2D" uid="uid://bmlquhqwfsfaf" path="res://Sprites/Enemy/glorp_walking-Sheet.png" id="2_l7a1q"]
 
@@ -79,6 +80,7 @@ animations = [{
 }]
 
 [node name="Glorp" type="CharacterBody2D"]
+script = ExtResource("1_ijwm0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1)

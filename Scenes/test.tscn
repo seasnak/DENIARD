@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://d2levtu3ndv6" path="res://Prefabs/player.tscn" id="2_moiji"]
 [ext_resource type="Script" path="res://Scripts/CharacterCamera.cs" id="4_1mogx"]
 [ext_resource type="PackedScene" uid="uid://yohljcmgj54w" path="res://Prefabs/glorp.tscn" id="4_jbiq8"]
-[ext_resource type="Script" path="res://Scripts/Enemy/Glorp.cs" id="5_xm5dr"]
 [ext_resource type="Texture2D" uid="uid://bx2pq15p7nqsh" path="res://Sprites/Objects/coin-Sheet.png" id="6_0r3pw"]
 [ext_resource type="Script" path="res://Scripts/Objects/Coin.cs" id="6_2v7ml"]
 [ext_resource type="Script" path="res://Scripts/UI/HealthBar.cs" id="8_gid33"]
@@ -15,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://c7bot0vp53gdl" path="res://Fonts/ARCADECLASSIC.TTF" id="13_1t8l2"]
 [ext_resource type="Script" path="res://Scripts/UI/CoinCounter.cs" id="13_47o2o"]
 [ext_resource type="Texture2D" uid="uid://c61j4d6ea3ufv" path="res://Sprites/Objects/coin.png" id="13_n085u"]
+[ext_resource type="PackedScene" uid="uid://drjmm736r8egq" path="res://Prefabs/UI/AnimatedTextureRect.tscn" id="16_di81p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cnvyj"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -111,7 +111,6 @@ script = ExtResource("4_1mogx")
 
 [node name="Glorp" parent="." instance=ExtResource("4_jbiq8")]
 position = Vector2(66, -30)
-script = ExtResource("5_xm5dr")
 
 [node name="Coin" type="Area2D" parent="."]
 position = Vector2(-29, 25)
@@ -126,7 +125,6 @@ shape = SubResource("RectangleShape2D_2cc3a")
 sprite_frames = SubResource("SpriteFrames_4o2cq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ManaBar" type="TextureProgressBar" parent="CanvasLayer"]
 offset_right = 72.0
@@ -159,3 +157,11 @@ layout_mode = 0
 offset_left = -40.0
 offset_bottom = 40.0
 texture = ExtResource("13_n085u")
+
+[node name="AnimatedTextureRect" parent="CanvasLayer/CoinCounter" instance=ExtResource("16_di81p")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1

@@ -43,10 +43,13 @@ public partial class Glorp : Enemy
 			Velocity = (player.Position - this.Position).Normalized() * movespeed;
 			sprite.FlipH = Velocity.X > 0;
 		}
-		else if((this.Position - (Vector2)result["position"]).Length() < 10) {
+		else if((this.Position - (Vector2)result["position"]).Length() < 100) {
 			//Move to position where player was last seen
-			if(player_visible) { target_position = (Vector2)result["position"]; }
-			Velocity = (target_position - this.Position).Normalized() * movespeed; // move towards target
+			if(player_visible) {
+				target_position = (Vector2)result["position"]; 
+			}
+			GD.Print($"{target_position}");
+			Velocity = (this.Position - target_position).Normalized() * movespeed; // move towards target
 			player_visible = false;
 		}
 		else {
