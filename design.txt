@@ -1,0 +1,20 @@
+DENIARD
+Design Document
+
+Introduction
+
+What is Deniard?
+Deniard is a top down rogue-lite game about exploring a handmade dungeon (or multiple). The game itself is a proof-of-concept to finetune the mechanics for a more standard rpg.
+
+I also wanted to have a minor quest system integrated into every dungeon where each dungeon has several potential objectives that the player needs to complete. For example, one of the levels could have either a broken minecart or an gnome infestation. These are both solved in different ways, and require the player to complete a different task. To make these feel unique, they could implement a different modifier to the game to make the game play differently based on the task that needs to be completed. For example, if a fire needs to be put out to progress/complete a level, the player must carry a bucket of water to the fire that drains a little everytime the player dodge rolls or moves and leaves puddles of water around.
+
+Inspirations
+
+Minit
+Deniard aims to be an improvement of the gameplay loop of Minit. In Minit, the player is a duck-thing that is stuck in a time-loop, where each loop is 60 seconds (a minute) long. I wanted to adapt this mechanic and simplify it by instead making the player’s health bar decrement over time.
+
+TLoZ: Phantom Hourglass
+In Phantom Hourglass, the Temple of the Ocean King has a unique mechanic where the player has a certain amount of time before the temple “drains their health away”. In this time, the player needs to solve puzzles and delve deeper into the temple before they run out of time.
+
+Vampire Survivors/Nuclear Throne/Enter the Gungeon
+Just your standard roguelikes!

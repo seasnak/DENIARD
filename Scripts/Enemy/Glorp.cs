@@ -62,8 +62,6 @@ public partial class Glorp : Enemy
 		else {
 			sprite.Play("idle");
 		}
-
-
 	}
     
 }

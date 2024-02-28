@@ -12,7 +12,7 @@ public partial class Enemy : CharacterBody2D
 	protected int curr_mana;
 
 	protected int movespeed = 10;
-
+	
 	protected AnimatedSprite2D sprite;
 
 	// Called when the node enters the scene tree for the first time.
