@@ -17,4 +17,9 @@ TLoZ: Phantom Hourglass
 In Phantom Hourglass, the Temple of the Ocean King has a unique mechanic where the player has a certain amount of time before the temple “drains their health away”. In this time, the player needs to solve puzzles and delve deeper into the temple before they run out of time.
 
 Vampire Survivors/Nuclear Throne/Enter the Gungeon
-Just your standard roguelikes!
+Just your standard top-down (and partially twin-stick) roguelikes!
+
+__Characters__
+Playable characters are class based with various loadouts. Each loadout is comprised of a primary weapon and 4 abilities.
+
+In addition to these abilities, the player also has a dodge of some kind. 
