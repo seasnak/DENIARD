@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxbtsgiiak1qk"
-path="res://.godot/imported/apollo-1x.png-c238e1bda47fc52f077ef97ec5eebd69.ctex"
+uid="uid://b6bib2q0b004s"
+path="res://.godot/imported/grass_key.png-5e05f709c30800ffc2fa9f0e0ee94408.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/apollo-1x.png"
-dest_files=["res://.godot/imported/apollo-1x.png-c238e1bda47fc52f077ef97ec5eebd69.ctex"]
+source_file="res://Sprites/Tilesets/grass_key.png"
+dest_files=["res://.godot/imported/grass_key.png-5e05f709c30800ffc2fa9f0e0ee94408.ctex"]
 
 [params]
 

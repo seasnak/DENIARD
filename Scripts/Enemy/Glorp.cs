@@ -11,23 +11,23 @@ public partial class Glorp : Enemy
 	private Godot.Vector2 target_position; // the location of the target to move to.
 	private bool player_visible = false;
 
-    public override void _Ready()
-    {
-        base._Ready();
+	public override void _Ready()
+	{
+		base._Ready();
 
 		//update local variables
 		movespeed = 30;
 		
 		player = GetNode<Player>("/root/World/Player");
-    }
+	}
 
-    public override void _Process(double delta)
-    {
-        base._Process(delta);
+	public override void _Process(double delta)
+	{
+		base._Process(delta);
 
 		HandleMovement();
 		MoveAndSlide();
-    }
+	}
 
 	private void HandleMovement() {
 		
@@ -63,5 +63,5 @@ public partial class Glorp : Enemy
 			sprite.Play("idle");
 		}
 	}
-    
+	
 }
