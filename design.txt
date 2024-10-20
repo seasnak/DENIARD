@@ -1,14 +1,14 @@
 DENIARD
 Design Document
 
-Introduction
+__Introduction__
 
 What is Deniard?
 Deniard is a top down rogue-lite game about exploring a handmade dungeon (or multiple). The game itself is a proof-of-concept to finetune the mechanics for a more standard rpg.
 
 I also wanted to have a minor quest system integrated into every dungeon where each dungeon has several potential objectives that the player needs to complete. For example, one of the levels could have either a broken minecart or an gnome infestation. These are both solved in different ways, and require the player to complete a different task. To make these feel unique, they could implement a different modifier to the game to make the game play differently based on the task that needs to be completed. For example, if a fire needs to be put out to progress/complete a level, the player must carry a bucket of water to the fire that drains a little everytime the player dodge rolls or moves and leaves puddles of water around.
 
-Inspirations
+__Inspirations__
 
 Minit
 Deniard aims to be an improvement of the gameplay loop of Minit. In Minit, the player is a duck-thing that is stuck in a time-loop, where each loop is 60 seconds (a minute) long. I wanted to adapt this mechanic and simplify it by instead making the player’s health bar decrement over time.
@@ -17,9 +17,47 @@ TLoZ: Phantom Hourglass
 In Phantom Hourglass, the Temple of the Ocean King has a unique mechanic where the player has a certain amount of time before the temple “drains their health away”. In this time, the player needs to solve puzzles and delve deeper into the temple before they run out of time.
 
 Vampire Survivors/Nuclear Throne/Enter the Gungeon
-Just your standard top-down (and partially twin-stick) roguelikes!
+Just your standard top-down roguelikes!
 
-__Characters__
-Playable characters are class based with various loadouts. Each loadout is comprised of a primary weapon and 4 abilities.
+__Platform__
+Developed for PC (Windows/Linux/Mac)
 
-In addition to these abilities, the player also has a dodge of some kind. 
+__Development Software__
+Godot .NET version as a game engine
+Aseprite for sprites
+LMMS (or a different simple daw) for music and SFX
+
+__Genre__
+Dungeon-Crawler, Exploration (Roguelite?)
+
+__Primary Mechanics__
+Class-based Character System: Playable characters are class based with various loadouts. Each loadout is comprised of a primary weapon and 4 abilities. In addition to these abilities, the player also has a dodge of some kind (a dodge roll, some kind of movement ability)
+
+Health Drain: The player's health will constantly drain, putting some sort of time limit on their ability to live
+
+Safe Zones: There will be safe zones that the player can stand/stay on or in in order to prevent the health drain effect from activating. To make things a little spicier, these areas might also contain spike traps, might phase out, might move, or have some kind of movement modifier.
+
+Dungeon Puzzle: Each level will have a puzzle of some kind that the player must solve. These will be simlpe and be the primary objetive that the player is trying to complete in order to get to the next level (before a boss fight?). These can be as simple as collecting a series of keys to unlock several doors or completing a platforming challenge.
+
+__Game Experience__
+UI: a simple pixel UI containing health, coins, and other basic UI elements
+
+Controls: (These can be switched later, just spit-balling)
+Keyboard Controls:
+WASD for movement
+Mouse for aiming 
+M1 for primary fire 
+M2 for secondary attack
+Space for dodge
+F for interact
+Q and E for abilities
+Shift for item use, Scroll Wheel to switch between items
+
+Controller Controls (XBOX controller scheme):
+Left Stick for movement
+Right Stick for primary shooting (auto shoots while the stick is pointed in a direction)
+R1 for secondary attack
+L1 for dodge
+L2/R2 for abilities
+A for interact
+X for item use, DPAD to switch between items
