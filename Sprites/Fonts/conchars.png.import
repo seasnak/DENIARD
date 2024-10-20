@@ -13,9 +13,13 @@ dest_files=["res://.godot/imported/conchars.png-bbf853c743eabf4d18614dcf2e4ef315
 [params]
 
 character_ranges=PackedStringArray("0-127")
+kerning_pairs=PackedStringArray()
 columns=16
 rows=8
 image_margin=Rect2i(0, 0, 0, 0)
 character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
 fallbacks=[]
 compress=true
+scaling_mode=2
