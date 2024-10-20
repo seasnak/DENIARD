@@ -11,6 +11,8 @@ public partial class DualGridTilemap : TileMapLayer {
 	[Export] public Vector2I dirtPlaceholderAtlasCoord;
 	readonly Vector2I[] NEIGHBOURS = new Vector2I[] { new(0, 0), new(1, 0), new(0, 1), new(1, 1) };
 
+	// 0 1
+	// 2 3
 	readonly Dictionary<Tuple<TileType, TileType, TileType, TileType>, Vector2I> neighboursToAtlasCoord = new() {
 		{new (Grass, Grass, Grass, Grass), new Vector2I(2, 1)}, // All corners
         {new (Dirt, Dirt, Dirt, Grass), new Vector2I(1, 3)}, // Outer bottom-right corner
@@ -62,7 +64,6 @@ public partial class DualGridTilemap : TileMapLayer {
 		else
 			return Dirt;
 	}
-
 }
 
 

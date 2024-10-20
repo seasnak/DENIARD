@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://ddkd8aqa4s3n5"]
+[gd_scene load_steps=11 format=4 uid="uid://ddkd8aqa4s3n5"]
 
 [ext_resource type="Texture2D" uid="uid://b6bib2q0b004s" path="res://Sprites/Tilesets/grass_key.png" id="1_obwvs"]
-[ext_resource type="Script" path="res://Scenes/DualGridTilemap.cs" id="2_dip8x"]
+[ext_resource type="Script" path="res://Scripts/Tilemap/DualGridTilemap.cs" id="2_dip8x"]
 [ext_resource type="Texture2D" uid="uid://cgsg0j8alutcw" path="res://Sprites/Tilesets/grass.png" id="2_gg65v"]
 [ext_resource type="PackedScene" uid="uid://d2levtu3ndv6" path="res://Prefabs/Units/Player.tscn" id="3_b5fqu"]
-[ext_resource type="PackedScene" uid="uid://b21wv45th62yo" path="res://Prefabs/Camera.tscn" id="4_qyoon"]
+[ext_resource type="PackedScene" path="res://Prefabs/Camera.tscn" id="4_qyoon"]
+[ext_resource type="Script" path="res://Scripts/Player/CharacterCamera.cs" id="6_38onj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwknv"]
 texture = ExtResource("1_obwvs")
@@ -38,11 +39,10 @@ sources/0 = SubResource("TileSetAtlasSource_h4gr4")
 
 [node name="TilemapTest" type="Node2D"]
 
-[node name="WorldTileMap" type="TileMapLayer" parent="." node_paths=PackedStringArray("displayTilemap")]
+[node name="WorldTileMap" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAD+/wAAAAAAAAAAAAD9/wEAAAABAAAAAAD+/wEAAAABAAAAAAD//wEAAAABAAAAAAAAAAEAAAABAAAAAAABAAEAAAABAAAAAAACAAEAAAABAAAAAAADAAEAAAABAAAAAAADAAAAAAABAAAAAAD9/wAAAAABAAAAAAD9////AAABAAAAAAD+////AAABAAAAAAD/////AAABAAAAAAAAAP//AAABAAAAAAABAP//AAABAAAAAAACAP//AAABAAAAAAADAP//AAABAAAAAAD9/wIAAAABAAAAAAD9/wMAAAABAAAAAAD+/wIAAAAAAAAAAAD+/wMAAAABAAAAAAD//wIAAAAAAAAAAAD//wMAAAABAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAABAAAAAAACAAIAAAAAAAAAAAACAAMAAAABAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAAAAAAAAAQAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAD9/wQAAAABAAAAAAD9/wUAAAABAAAAAAD+/wUAAAABAAAAAAD//wUAAAABAAAAAAAAAAUAAAABAAAAAAABAAUAAAABAAAAAAACAAUAAAABAAAAAAADAAUAAAABAAAAAAADAAQAAAABAAAAAAAEAP//AAABAAAAAAAFAP//AAABAAAAAAAGAP//AAABAAAAAAAGAAAAAAABAAAAAAAGAAEAAAABAAAAAAAGAAIAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAAAAAAGAAUAAAABAAAAAAAFAAUAAAABAAAAAAAEAAUAAAABAAAAAAAEAAQAAAABAAAAAAAEAAMAAAABAAAAAAAEAAIAAAABAAAAAAAEAAEAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAFAAEAAAABAAAAAAAFAAIAAAABAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_kl36d")
 script = ExtResource("2_dip8x")
-displayTilemap = NodePath("../DisplayTileMap")
 
 [node name="DisplayTileMap" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_6a18k")
@@ -50,6 +50,6 @@ tile_set = SubResource("TileSet_6a18k")
 [node name="Player" parent="." instance=ExtResource("3_b5fqu")]
 position = Vector2(8, 0)
 
-[node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_qyoon")]
+[node name="Camera2D" parent="." instance=ExtResource("4_qyoon")]
 position = Vector2(88, 40)
-target = NodePath("../Player")
+script = ExtResource("6_38onj")
