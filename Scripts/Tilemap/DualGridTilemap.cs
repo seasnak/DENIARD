@@ -41,6 +41,7 @@ public partial class DualGridTilemap : TileMapLayer {
 
 	private void SetDisplayTile(Vector2I pos) {
 		// loop through 4 display neighbours
+		GD.Print($"Editing tile at {pos}");
 		for (int i = 0; i < NEIGHBOURS.Length; i++) {
 			Vector2I newPos = pos + NEIGHBOURS[i];
 			displayTilemap.SetCell(newPos, 1, CalculateDisplayTile(newPos));
