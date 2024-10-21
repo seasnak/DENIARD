@@ -7,8 +7,8 @@ namespace Deniard.Tilemap;
 public partial class DualGridTilemap : TileMapLayer {
 
 	[Export] TileMapLayer displayTilemap;
-	[Export] public Vector2I grassPlaceholderAtlasCoord;
-	[Export] public Vector2I dirtPlaceholderAtlasCoord;
+	[Export] private Vector2I grassPlaceholderAtlasCoord = new(0, 0);
+	[Export] private Vector2I dirtPlaceholderAtlasCoord = new(1, 0);
 	readonly Vector2I[] NEIGHBOURS = new Vector2I[] { new(0, 0), new(1, 0), new(0, 1), new(1, 1) };
 
 	// 0 1
@@ -37,11 +37,13 @@ public partial class DualGridTilemap : TileMapLayer {
 		foreach(Vector2I coord in GetUsedCells()) {
 			SetDisplayTile(coord);
 		}
+
+		
 	}
 
 	private void SetDisplayTile(Vector2I pos) {
 		// loop through 4 display neighbours
-		GD.Print($"Editing tile at {pos}");
+		// GD.Print($"Editing tile at {pos}"); // DEBUG 
 		for (int i = 0; i < NEIGHBOURS.Length; i++) {
 			Vector2I newPos = pos + NEIGHBOURS[i];
 			displayTilemap.SetCell(newPos, 1, CalculateDisplayTile(newPos));
@@ -54,6 +56,7 @@ public partial class DualGridTilemap : TileMapLayer {
 		TileType botLeft = GetWorldTile(coords - NEIGHBOURS[1]);
 		TileType topRight = GetWorldTile(coords - NEIGHBOURS[2]);
 		TileType topLeft = GetWorldTile(coords - NEIGHBOURS[3]);
+		GD.Print(topLeft, topRight, botLeft, botRight);
 
 		return neighboursToAtlasCoord[new(topLeft, topRight, botLeft, botRight)];
 	}

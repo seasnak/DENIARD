@@ -1,19 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://ddkd8aqa4s3n5"]
+[gd_scene load_steps=10 format=4 uid="uid://ddkd8aqa4s3n5"]
 
 [ext_resource type="Texture2D" uid="uid://b6bib2q0b004s" path="res://Sprites/Tilesets/grass_key.png" id="1_obwvs"]
 [ext_resource type="Script" path="res://Scripts/Tilemap/DualGridTilemap.cs" id="2_dip8x"]
 [ext_resource type="Texture2D" uid="uid://cgsg0j8alutcw" path="res://Sprites/Tilesets/grass.png" id="2_gg65v"]
 [ext_resource type="PackedScene" uid="uid://d2levtu3ndv6" path="res://Prefabs/Units/Player.tscn" id="3_b5fqu"]
-[ext_resource type="PackedScene" path="res://Prefabs/Camera.tscn" id="4_qyoon"]
 [ext_resource type="Script" path="res://Scripts/Player/CharacterCamera.cs" id="6_38onj"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwknv"]
-texture = ExtResource("1_obwvs")
-0:0/0 = 0
-1:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_kl36d"]
-sources/0 = SubResource("TileSetAtlasSource_gwknv")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4gr4"]
 texture = ExtResource("2_gg65v")
@@ -37,21 +28,29 @@ texture = ExtResource("2_gg65v")
 [sub_resource type="TileSet" id="TileSet_6a18k"]
 sources/0 = SubResource("TileSetAtlasSource_h4gr4")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwknv"]
+texture = ExtResource("1_obwvs")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kl36d"]
+sources/0 = SubResource("TileSetAtlasSource_gwknv")
+
 [node name="TilemapTest" type="Node2D"]
+
+[node name="DisplayTileMap" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_6a18k")
 
 [node name="WorldTileMap" type="TileMapLayer" parent="." node_paths=PackedStringArray("displayTilemap")]
 tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAD+/wAAAAAAAAAAAAD9/wEAAAABAAAAAAD+/wEAAAABAAAAAAD//wEAAAABAAAAAAAAAAEAAAABAAAAAAABAAEAAAABAAAAAAACAAEAAAABAAAAAAADAAEAAAABAAAAAAADAAAAAAABAAAAAAD9/wAAAAABAAAAAAD9////AAABAAAAAAD+////AAABAAAAAAD/////AAABAAAAAAAAAP//AAABAAAAAAABAP//AAABAAAAAAACAP//AAABAAAAAAADAP//AAABAAAAAAD9/wIAAAABAAAAAAD9/wMAAAABAAAAAAD+/wIAAAAAAAAAAAD+/wMAAAABAAAAAAD//wIAAAAAAAAAAAD//wMAAAABAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAABAAAAAAACAAIAAAAAAAAAAAACAAMAAAABAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAAAAAAAAAQAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAD9/wQAAAABAAAAAAD9/wUAAAABAAAAAAD+/wUAAAABAAAAAAD//wUAAAABAAAAAAAAAAUAAAABAAAAAAABAAUAAAABAAAAAAACAAUAAAABAAAAAAADAAUAAAABAAAAAAADAAQAAAABAAAAAAAEAP//AAABAAAAAAAFAP//AAABAAAAAAAGAP//AAABAAAAAAAGAAAAAAABAAAAAAAGAAEAAAABAAAAAAAGAAIAAAABAAAAAAAGAAMAAAABAAAAAAAGAAQAAAABAAAAAAAGAAUAAAABAAAAAAAFAAUAAAABAAAAAAAEAAUAAAABAAAAAAAEAAQAAAABAAAAAAAEAAMAAAABAAAAAAAEAAIAAAABAAAAAAAEAAEAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAFAAEAAAABAAAAAAAFAAIAAAABAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_kl36d")
 script = ExtResource("2_dip8x")
 displayTilemap = NodePath("../DisplayTileMap")
-
-[node name="DisplayTileMap" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_6a18k")
+dirtPlaceholderAtlasCoord = Vector2i(1, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_b5fqu")]
 position = Vector2(8, 0)
 
-[node name="Camera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_qyoon")]
-position = Vector2(88, 40)
+[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("6_38onj")
 target = NodePath("../Player")
