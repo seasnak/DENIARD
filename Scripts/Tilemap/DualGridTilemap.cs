@@ -37,16 +37,17 @@ public partial class DualGridTilemap : TileMapLayer {
 		foreach(Vector2I coord in GetUsedCells()) {
 			SetDisplayTile(coord);
 		}
-
+		
+		this.Visible = false;
 		
 	}
 
 	private void SetDisplayTile(Vector2I pos) {
 		// loop through 4 display neighbours
 		// GD.Print($"Editing tile at {pos}"); // DEBUG 
-		for (int i = 0; i < NEIGHBOURS.Length; i++) {
+		for(int i = 0; i < NEIGHBOURS.Length; i++) {
 			Vector2I newPos = pos + NEIGHBOURS[i];
-			displayTilemap.SetCell(newPos, 1, CalculateDisplayTile(newPos));
+			displayTilemap.SetCell(newPos, 0, CalculateDisplayTile(newPos));
 		}
 	}
 
@@ -56,7 +57,7 @@ public partial class DualGridTilemap : TileMapLayer {
 		TileType botLeft = GetWorldTile(coords - NEIGHBOURS[1]);
 		TileType topRight = GetWorldTile(coords - NEIGHBOURS[2]);
 		TileType topLeft = GetWorldTile(coords - NEIGHBOURS[3]);
-		GD.Print(topLeft, topRight, botLeft, botRight);
+		// GD.Print(topLeft, topRight, botLeft, botRight);
 
 		return neighboursToAtlasCoord[new(topLeft, topRight, botLeft, botRight)];
 	}

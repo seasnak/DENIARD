@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/TilemapTest.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 config/icon="res://Sprites/icon.svg"
 
+[autoload]
+
+HotkeysAutoload="*res://Scripts/Autoloads/HotkeysAutoload.cs"
+
 [dotnet]
 
 project/assembly_name="DENIARD"
