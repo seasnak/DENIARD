@@ -7,7 +7,7 @@ public partial class CharacterCamera : Camera2D
 {
 	[Export] CharacterBody2D target;
 	[Export] string rootNodeStr = "root/";
-	[Export] Vector2 camera_zoom = new(2.5f, 2.5f);
+	[Export] Vector2 camera_zoom = new(5f, 5f);
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
@@ -15,7 +15,7 @@ public partial class CharacterCamera : Camera2D
 		if(target == null) {
 			try {
 				target = GetNode<CharacterBody2D>($"{rootNodeStr}Player");
-			} 
+			}
 			catch(Exception e) {
 				GD.PrintErr($"Error loading target node: {e}.");
 				throw;
