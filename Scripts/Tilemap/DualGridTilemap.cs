@@ -39,7 +39,6 @@ public partial class DualGridTilemap : TileMapLayer {
 		}
 		
 		this.Visible = false;
-		
 	}
 
 	private void SetDisplayTile(Vector2I pos) {
